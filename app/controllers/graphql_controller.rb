@@ -11,6 +11,7 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       current_user: current_user,
+      current_ability: current_ability
     }
     result = ExampleSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -26,6 +27,10 @@ class GraphqlController < ApplicationController
       name: 'Bart Simpson',
       email: 'bart.simpson@example.com'
     )
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(current_user)
   end
 
   # Handle variables in form data, JSON body, or a blank value
