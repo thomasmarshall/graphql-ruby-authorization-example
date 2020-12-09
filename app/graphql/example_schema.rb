@@ -1,3 +1,5 @@
+GraphQL::Schema::Field.accepts_definition(:authorize)
+
 class ExampleSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
