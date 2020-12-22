@@ -8,4 +8,6 @@ class ExampleSchema < GraphQL::Schema
 
   # Add built-in connections for pagination
   use GraphQL::Pagination::Connections
+
+  use BatchLoader::GraphQL
 end
