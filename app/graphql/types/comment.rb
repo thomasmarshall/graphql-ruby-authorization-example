@@ -1,5 +1,9 @@
 module Types
   class Comment < Types::BaseObject
+    actionable do |enum|
+      enum.value "MODERATE", value: :moderate
+    end
+
     field :id, ID, null: false
     field :post, Types::Post, null: false
     field :user, Types::User, null: false
